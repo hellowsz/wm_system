@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import wareHouseManagement from './modules/wareHouseManagement'
 
 Vue.use(VueRouter)
 
-const routes = [
-  { path: '/', redirect: '/login' },
+const commonRoutes = [
   {
     path:'/login',
     name:'login',
@@ -19,12 +19,30 @@ const routes = [
     component: () => import('@/views/index'),
     meta:{
       title:'物流管理系统'
-    }
+    },
   },
 ]
 
-const router = new VueRouter({
-  routes
+export const asyncRoutes = [ ...wareHouseManagement]
+
+const createRouter = () => new VueRouter({
+  mode: 'history', // require service support
+  routes: [ ...commonRoutes, ...asyncRoutes ]
+  // routes: [ ...commonRoutes ]
+
 })
+
+const router = createRouter()
+
+export function resetRouter () {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher
+}
+
+const originalPush = VueRouter.prototype.push
+   VueRouter.prototype.push = function push(location) {
+   return originalPush.call(this, location).catch(err => err)
+}
+
 
 export default router
