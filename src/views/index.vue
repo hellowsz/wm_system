@@ -7,13 +7,12 @@
         <!-- 头部 -->
         <el-header></el-header>
         <!-- 内容 -->
-        <el-container class="containerIndex">
+        <el-container class="main-content">
           <transition>
             <router-view />
           </transition>
         </el-container>
         <!-- 尾部 -->
-        <el-footer></el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -30,27 +29,34 @@ export default {
       
     };
   },
-  // mounted () {
-  //   this.$store.commit('common/SET_WINDOWWIDTH', document.body.offsetWidth)
-  //   this.$store.commit('common/SET_WINDOWHEIGHT', document.body.offsetHeight)
-  //   let $this = this
-  //   window.onresize = () => {
-  //     $this.$store.commit('common/SET_WINDOWWIDTH', document.body.offsetWidth)
-  //     $this.$store.commit('common/SET_WINDOWHEIGHT', document.body.offsetHeight)
-  //     $this.$store.commit('common/SET_FILTERTABLEWIDTH',
-  //     document.getElementsByClassName('filter-table').length>0?document.getElementsByClassName('filter-table')[0].offsetWidth:document.body.offsetWidth) //销售结算网站有个菜单栏减去
-  //   }
-  //   window.onresize()
-  // },
+  mounted () {
+    
+    let $this = this
+    $this.$store.commit('common/SET_WINDOWWIDTH', document.body.offsetWidth)
+    $this.$store.commit('common/SET_WINDOWHEIGHT', document.body.offsetHeight)
+    window.onresize = () => {
+      $this.$store.commit('common/SET_WINDOWWIDTH', document.body.offsetWidth)
+      $this.$store.commit('common/SET_WINDOWHEIGHT', document.body.offsetHeight)
+      $this.$store.commit('common/SET_FILTERTABLEWIDTH',
+      document.getElementsByClassName('filter-table').length>0?document.getElementsByClassName('filter-table')[0].offsetWidth:document.body.offsetWidth) //销售结算网站有个菜单栏减去
+    }
+    window.onresize()
+  },
 };
 </script>
 <style>
+.main-content{
+  background-color:#F2F2F2;
+  color: #333;
+  padding: 0;
+}
 .content{
-    height: calc(100% - 40px - 20px);
+    height: calc(100%  - 20px);
     overflow-y: auto;
     background-color: #fff;
     margin:10px;
     padding:0;
+    width: 100%;
 }
 html,
 body {
@@ -70,6 +76,7 @@ body {
   /* background-color: #d3dce6; */
   color: #333;
   /* line-height: 200px; */
+  overflow: hidden !important;
 }
 
 .el-main {
