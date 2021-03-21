@@ -14,7 +14,7 @@ const commonRoutes = [
     }
   },
   {
-    path:'/index',
+    path:'/',
     name:'index',
     component: () => import('@/views/index'),
     meta:{

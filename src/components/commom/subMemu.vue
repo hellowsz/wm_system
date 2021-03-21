@@ -27,6 +27,11 @@
 </template>
 <script>
 export default {
+  
+}
+</script>
+<script>
+export default {
   data() {
     return {
       //侧边导航数据
@@ -48,10 +53,10 @@ export default {
           ],
         },
         {
-          label: "货物管理",
+          label: "物流单管理",
           index: "3",
           elMenuItem: [
-            { name: "货物信息", index: "3-1" },
+            { name: "物流信息", index: "3-1" },
           ],
         },
       ],

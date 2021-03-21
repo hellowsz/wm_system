@@ -13,6 +13,9 @@ const mutations = {
   SET_WINDOWHEIGHT (state, height) {
     state.windowHeight = height
   },
+  SET_FILTERTABLEWIDTH (state, width) {
+    state.filterTableWidth = width
+  },
 };
 const actions = {
 }
