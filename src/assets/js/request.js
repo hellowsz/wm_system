@@ -12,43 +12,7 @@ import { MessageBox } from 'element-ui'
 // let config.headers = {}
 axios.interceptors.request.use(
   config => {
-    config.cancelToken = new axios.CancelToken(function (cancel) {
-      store.commit('common/SET_CANCELTOKEN', { cancelToken: cancel })
-    })
     // eslint-disable-next-line no-undef
-    let baseUrl = (commonParamH5 && commonParamH5[config.headers.type]) || ''
-    let auth = store.state.common.user.auth
-    if (!auth && config.url.indexOf("/login")==-1) {
-      MessageBox({
-        message: '登录过期',
-        title: '提示',
-        callback: function () {
-          // 退出登录
-          router.push('/login')
-        }
-      })
-      return
-    }
-    config.url = baseUrl + config.url
-    // ie 版本修改
-    if (config.headers.type === 'clsettlegateway' || config.headers.type === 'profitAccounting') {
-      config.data = JSON.stringify(config.data)
-      if (!!window.ActiveXObject || 'ActiveXObject' in window) {
-        // console.log('ie')
-        config.headers['Content-Type'] = 'text/plain;charset=utf-8'
-      } else {
-        config.headers['Content-Type'] = 'application/json;charset=utf-8'
-      }
-    }
-    // config.data = qs.parse(qs.stringify(config.data)) 不行，会把数组转的有问题
-    if (config.headers.type === 'restful') {
-      config.headers['auth'] = auth
-    } else if (config.headers.type === 'test' || baseUrl === '/static/data') {
-      config.url += '.json'
-    }else{
-      config.headers['la517-authSign'] = auth
-    }
-    delete config.headers.type
     return config
   },
   error => {
@@ -61,22 +25,8 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   response => {
     let res = response.data
-    if (res.code === 4) {
-      return res
-      // MessageBox(res.message, '提示')
-    } else if (res.code === 8888 || res.message === 'sessionID已过期，用户信息已失效') {
-      store.commit('common/CLEAR_USER_INFO')
-      MessageBox({
-        message: '登录过期：' + res.message,
-        title: '提示',
-        callback: function () {
-          // 退出登录
-          router.push('/login')
-        }
-      })
-    } else {
-      return res
-    }
+    
+    return res
   },
   error => {
     if (error.response && error.response.status === 500) {

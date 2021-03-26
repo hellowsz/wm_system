@@ -7,7 +7,7 @@
         <div class="userinfo">管理员</div>
       </div>
     </div>
-    <el-menu default-active="2" :unique-opened="true"
+    <el-menu default-active="2" unique-opened="true"
       ><!-- 导航选项 -->
       <el-submenu
         v-for="item in subMenuData"
@@ -27,11 +27,6 @@
 </template>
 <script>
 export default {
-  
-}
-</script>
-<script>
-export default {
   data() {
     return {
       //侧边导航数据
@@ -42,21 +37,22 @@ export default {
           elMenuItem: [
             { name: "仓储信息", index: "11", url:"/wareHouseInfo" },
             { name: "快递站分布", index: "12", url:"/wareHouseReport"},
+            { name: "快递站分布", index: "12", url:"/wareHouseVisual"}
           ],
         },
         {
           label: "快递员管理",
           index: "2",
           elMenuItem: [
-            { name: "快递员信息", index: "21" },
-            { name: "快递员分布", index: "22" },
+            { name: "快递员信息", index: "21",url:"/courierInfo" },
+            { name: "快递员分布", index: "22", url:'/courierDistribution' },
           ],
         },
         {
-          label: "物流单管理",
+          label: "货物管理",
           index: "3",
           elMenuItem: [
-            { name: "物流信息", index: "3-1" },
+            { name: "货物信息", index: "3-1" },
           ],
         },
       ],

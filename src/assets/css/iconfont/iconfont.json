@@ -1,0 +1,121 @@
+{
+  "id": "1695406",
+  "name": "成本中心&核算单元",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "13738457",
+      "name": "垃圾桶 (1)",
+      "font_class": "lajitong",
+      "unicode": "e6ec",
+      "unicode_decimal": 59116
+    },
+    {
+      "icon_id": "13728182",
+      "name": "下一级",
+      "font_class": "xiayiji",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
+      "icon_id": "13683399",
+      "name": "收起",
+      "font_class": "shouqi1",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "13683400",
+      "name": "展开",
+      "font_class": "zhankai1",
+      "unicode": "e6ea",
+      "unicode_decimal": 59114
+    },
+    {
+      "icon_id": "13675433",
+      "name": "后退",
+      "font_class": "houtui",
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    },
+    {
+      "icon_id": "13635971",
+      "name": "下一级箭头 (1)",
+      "font_class": "xiayijijiantou",
+      "unicode": "e6e5",
+      "unicode_decimal": 59109
+    },
+    {
+      "icon_id": "13635967",
+      "name": "删除 (1)",
+      "font_class": "shanchu1",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "13605244",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "13582034",
+      "name": "复选-选中",
+      "font_class": "fuxuan-xuanzhong",
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
+      "icon_id": "13582035",
+      "name": "复选-未勾选",
+      "font_class": "fuxuan-weigouxuan",
+      "unicode": "e6e2",
+      "unicode_decimal": 59106
+    },
+    {
+      "icon_id": "13504260",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "13504203",
+      "name": "fenji",
+      "font_class": "fenji",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "13504198",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "13503704",
+      "name": "zuzhi",
+      "font_class": "zuzhi",
+      "unicode": "e6dd",
+      "unicode_decimal": 59101
+    },
+    {
+      "icon_id": "13503699",
+      "name": "展开",
+      "font_class": "zhankai",
+      "unicode": "e6dc",
+      "unicode_decimal": 59100
+    },
+    {
+      "icon_id": "13503672",
+      "name": "收起",
+      "font_class": "shouqi",
+      "unicode": "e6db",
+      "unicode_decimal": 59099
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import wareHouseManagement from './modules/wareHouseManagement'
+import courierManagement from './modules/courierManagement'
 
 Vue.use(VueRouter)
 
@@ -23,7 +24,7 @@ const commonRoutes = [
   },
 ]
 
-export const asyncRoutes = [ ...wareHouseManagement]
+export const asyncRoutes = [ ...wareHouseManagement,...courierManagement]
 
 const createRouter = () => new VueRouter({
   mode: 'history', // require service support

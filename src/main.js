@@ -6,6 +6,16 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/styles/index.scss'
 import $ from 'jquery';
+import BaiduMap from 'vue-baidu-map'
+import "./assets/css/iconfont/iconfont.css"
+import dataV from '@jiaminghi/data-view'
+
+Vue.use(dataV)
+
+Vue.use(BaiduMap, {
+  /* 需要注册百度地图开发者来获取你的ak */
+  ak: 'x6ahW0fUsw5aXfIqgQLHan81nzTo6MDG'
+})
 window.jQuery = $;
 window.$ = $;
 
