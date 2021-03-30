@@ -37,7 +37,7 @@ export default {
           elMenuItem: [
             { name: "仓储信息", index: "11", url:"/wareHouseInfo" },
             { name: "快递站分布", index: "12", url:"/wareHouseReport"},
-            { name: "快递站分布", index: "12", url:"/wareHouseVisual"}
+            { name: "快递站分布", index: "13", url:"/wareHouseVisual"}
           ],
         },
         {

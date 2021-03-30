@@ -9,8 +9,11 @@ import $ from 'jquery';
 import BaiduMap from 'vue-baidu-map'
 import "./assets/css/iconfont/iconfont.css"
 import dataV from '@jiaminghi/data-view'
+import VCharts from 'v-charts'
+
 
 Vue.use(dataV)
+Vue.use(VCharts)
 
 Vue.use(BaiduMap, {
   /* 需要注册百度地图开发者来获取你的ak */
