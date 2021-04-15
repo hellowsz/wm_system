@@ -13,6 +13,9 @@ import { MessageBox } from 'element-ui'
 axios.interceptors.request.use(
   config => {
     // eslint-disable-next-line no-undef
+    // config.headers = {
+    //   'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    //   }  
     return config
   },
   error => {

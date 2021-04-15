@@ -21,6 +21,23 @@
       :currentPage="tableConfig.pageIndex"
       :loading="loading"
     ></com-table>
+
+    <el-drawer
+      :title="drawerTitle"
+      :visible.sync="drawerVisible"
+      size="50%"
+      :destroy-on-close="true"
+      class="drawerDetail"
+    >
+      <template-detail
+        v-if="drawerVisible"
+        ref="applicationDetail"
+        :template="queryData[0].options.filter(item => item.value !== 2)"
+        :data="drawerInfo"
+        :editable.sync="editableMain"
+        :visible.sync="drawerVisible"
+      ></template-detail>
+    </el-drawer>
   </el-container>
 </template>
 
@@ -28,13 +45,15 @@
 import tableFilter from "@/components/filter/tableFilter.vue";
 import comOperateList from "@/components/operateList/comOperateList.vue";
 import comTable from "@/components/table/comTable.vue";
-// import { query} from '@/api/warehouseInfo'
+import templateDetail from "./components/templateDetail";
+import { query} from '@/api/warehouseInfo'
 export default {
   name: "wareHouseInfo",
   components: {
     tableFilter,
     comOperateList,
     comTable,
+    templateDetail
   },
   data() {
     return {
@@ -43,13 +62,13 @@ export default {
       queryData: [
         {
           label: "快递站名称",
-          name: "templateName",
+          name: "warehouseName",
           value: "",
           type: "text",
         },
         {
           label: "状态",
-          name: "isDisabled",
+          name: "state",
           value: "",
           type: "select",
           options: [
@@ -66,45 +85,38 @@ export default {
         // 表头字段
         fieldList: [
           {
-            fieldName: "advertSpaceName",
+            fieldName: "warehouseName",
             fieldDesc: "快递站名称",
             align: "left",
             fieldWidth: 200,
             fieldStatus: "2"
           },
           {
-            fieldName: "advertSpaceNo",
+            fieldName: "warehouseID",
             fieldDesc: "快递站编号",
             align: "left",
             fieldWidth: 160,
             fieldStatus: "2"
           },
           {
-            fieldName: "pictureSize",
+            fieldName: "state",
             fieldDesc: "状态",
             align: "center",
             fieldWidth: 100,
             fieldStatus: "2"
           },
           {
-            fieldName: "advertCount",
+            fieldName: "maxGoods",
             fieldDesc: "最大容纳数量",
             align: "right",
             fieldWidth: 140,
             fieldStatus: "2"
           },
           {
-            fieldName: "labelShow",
+            fieldName: "goodsQuantity",
             fieldDesc: "已容纳数量",
             align: "center",
             fieldWidth: 200,
-            fieldStatus: "2"
-          },
-          {
-            fieldName: "stateName",
-            fieldDesc: "状态",
-            align: "center",
-            fieldWidth: 140,
             fieldStatus: "2"
           },
           {
@@ -123,8 +135,8 @@ export default {
           }
         ],
         tableFieldConfig: {
-          advertSpaceName: { type: "link", fun: this.showDetailInfo },
-          isEnable: { disConverObj: { 0: "禁用", 1: "启用" } }
+          warehouseName: { type: "link", fun: this.showDetailInfo },
+          state: { disConverObj: { 0: "禁用", 1: "启用" } }
         },
         pageSize: 50,
         pageIndex: 1
@@ -210,26 +222,26 @@ export default {
       param = this.getAllFilter();
       param.pageSize = this.tableConfig.pageSize;
       param.pageIndex = this.tableConfig.pageIndex;
-      // query(param).then(res=>{
-      //   console.log(res)
-      // })
-      let data = {
-              dataInfo: [
-                {
-                  advertSpaceName:"123"
-                }
-              ],
+      query(param).then(res=>{
+        console.log(res)
+        let data = {
+              dataInfo: res.result,
               totalCount: 1
             };
             this.tableData = data;
             this.loading = false;
             console.log(this.tableData)
+      })
+      
+    },
+    showDetailInfo(){
+      
     },
     addNew() {
       this.drawerVisible = true;
       this.editableMain = true;
       this.drawerInfo = {};
-      this.drawerTitle = "新增-广告位管理";
+      this.drawerTitle = "新增";
     },
   },
 };

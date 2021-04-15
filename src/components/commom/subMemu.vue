@@ -7,7 +7,7 @@
         <div class="userinfo">管理员</div>
       </div>
     </div>
-    <el-menu default-active="2" unique-opened="true"
+    <el-menu default-active="2" :unique-opened="true"
       ><!-- 导航选项 -->
       <el-submenu
         v-for="item in subMenuData"
